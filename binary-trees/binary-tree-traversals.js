@@ -66,6 +66,20 @@ class BinaryTree {
       this.preorderTraversalRecursive(node.right, result);
     }
   }
+
+  inorderTraversal() {
+    const result = [];
+    this.inorderTraversalRecursive(this.root, result);
+    return result;
+  }
+
+  inorderTraversalRecursive(node, result) {
+    if (node) {
+      this.inorderTraversalRecursive(node.left, result);
+      result.push(node.data);
+      this.inorderTraversalRecursive(node.right, result);
+    }
+  }
 }
 
 const tree = new BinaryTree();
@@ -76,5 +90,8 @@ tree.insert(10);
 tree.insert(15);
 tree.insert(7);
 
-const result = tree.preorderTraversal(); // [5, 3, 1, 10, 7, 15]
-console.log('👉 result => ', result);
+const result_preorder = tree.preorderTraversal(); // [5, 3, 1, 10, 7, 15]
+console.log('👉 result_preorder => ', result_preorder);
+
+const result_inorder = tree.inorderTraversal(); // [5, 3, 1, 10, 7, 15]
+console.log('👉 result_inorder => ', result_inorder);
